@@ -12,8 +12,6 @@ build-job:
     - make s21_cat
     - cd ../grep
     - make s21_grep
-    - git branch
-    - pwd
   artifacts:
     paths:
       - src/cat/s21_cat
@@ -29,12 +27,12 @@ style-job:
     - clang-format -Werror -n cat/s21_cat.c
     - clang-format -Werror -n grep/s21_grep.c
 
-  test-job:
-    tags:
-      - basic
-    stage: test
-    script:
-      - cd src/cat
-      - ./test.sh
-      - cd ../grep
-      - ./test.sh
+test-job:
+  tags:
+    - basic
+  stage: test
+  script:
+    - cd src/cat
+    - ./test.sh
+    - cd ../grep
+    - ./test.sh
