@@ -1,6 +1,7 @@
 stages:
   - build
   - style
+  - test
 
 build-job:
   tags:
@@ -27,3 +28,13 @@ style-job:
     - cd src
     - clang-format -Werror -n cat/s21_cat.c
     - clang-format -Werror -n grep/s21_grep.c
+
+  test-job:
+    tags:
+      - basic
+    stage: test
+    script:
+      - cd src/cat
+      - ./test.sh
+      - cd ../grep
+      - ./test.sh
