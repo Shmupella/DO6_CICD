@@ -1,7 +1,8 @@
 stages:
   - build
+  - style
 
-job:
+build-job:
   tags:
     - basic
   stage: build
@@ -17,3 +18,12 @@ job:
       - src/cat/s21_cat
       - src/grep/s21_grep
     expire_in: 30 days
+
+style-job:
+  tags:
+    - basic
+  stage: style
+  script:
+    - cd src
+    - clang-format -n cat/s21_cat.c
+    - clang-format -n grep/s21_grep.c
