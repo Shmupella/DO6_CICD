@@ -24,6 +24,7 @@ style-job:
     - basic
   stage: style
   script:
-    - cd src
-    - clang-format -n cat/s21_cat.c
-    - clang-format -n grep/s21_grep.c
+    - cd src/cat
+    - clang-format -n s21_cat.c
+    - cd ../grep
+    - clang-format -n s21_grep.c
