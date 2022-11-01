@@ -25,5 +25,5 @@ style-job:
   stage: style
   script:
     - cd src
-    - clang-format --dry-run cat/s21_cat.c
-    - clang-format --dry-run grep/s21_grep.c
+    - clang-format -n cat/s21_cat.c
+    - clang-format -n grep/s21_grep.c
