@@ -6,7 +6,7 @@ job:
     - basic
   stage: build
   script:
-    - echo  "Hello world!"
-    - whoami
-    - pwd
-    - ls
+    - cd src/cat
+    - make s21_cat
+    - cd ../grep
+    - make s21_grep
