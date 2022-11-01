@@ -2,6 +2,8 @@ stages:
   - build
 
 job:
+  tags:
+    - basic
   stage: build
   script:
     - echo  "Hello world!"
