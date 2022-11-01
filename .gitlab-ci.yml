@@ -7,3 +7,6 @@ job:
   stage: build
   script:
     - echo  "Hello world!"
+    - whoami
+    - pwd
+    - ls
