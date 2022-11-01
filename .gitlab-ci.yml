@@ -12,3 +12,8 @@ job:
     - make s21_grep
     - git branch
     - pwd
+  artifacts:
+    paths:
+      - s21_cat
+      - s21_grep
+    expire_in: 30 days
