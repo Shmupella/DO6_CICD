@@ -230,7 +230,7 @@ void pickupflags(char *check, char **argv) {
   }
 }
 
-int check_e   (char **argv, int argc) {
+int check_e(char **argv, int argc) {
   int count = 1;
   for (int i = 3; i < argc; i++) {
     if (argv[i][0] == '-')
