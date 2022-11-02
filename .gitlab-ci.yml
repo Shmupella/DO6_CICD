@@ -59,7 +59,7 @@ notification_success-job:
   stage: notification
   script:
     - ./notification.sh success
-  when: on-success
+  when: on_success
 
 notification_failure-job:
   variables:
@@ -70,4 +70,4 @@ notification_failure-job:
   stage: notification
   script:
     - ./notification.sh failure
-  when: on-failure
+  when: on_failure
