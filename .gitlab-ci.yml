@@ -48,11 +48,11 @@ deploy-job:
     - ./deploy.sh
 
 notification-job:
+  variables:
+    TELEGRAM_BOT_TOKEN: "5329922099:AAH6MpneOxaLbaUnFT0qx5rzLlhnLXWARlQ"
+    TELEGRAM_USER_ID: "-1001335562451"
   tags:
     - basic
   stage: notification
   script:
-    - echo $CI_PROJECT_NAME
-    - echo $CI_PROJECT_URL
-    - echo $CI_PIPELINE_ID
-    - echo $CI_COMMIT_REF_SLUG
+    - ./notification.sh
