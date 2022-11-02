@@ -46,6 +46,7 @@ deploy-job:
   when: manual
   script:
     - ./deploy.sh
+  allow_failure: false
 
 notification-job:
   variables:
