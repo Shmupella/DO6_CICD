@@ -3,6 +3,7 @@ stages:
   - style
   - test
   - deploy
+  - notification
 
 build-job:
   tags:
@@ -45,4 +46,13 @@ deploy-job:
   when: manual
   script:
     - ./deploy.sh
-  
+
+notification-job:
+  tags:
+    - basic
+  stage: notification
+  script:
+    - echo $CI_PROJECT_NAME
+    - echo $CI_PROJECT_URL
+    - echo $CI_PIPELINE_ID
+    - echo $CI_COMMIT_REF_SLUG
