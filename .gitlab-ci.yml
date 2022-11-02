@@ -48,6 +48,8 @@ deploy-job:
     - ./deploy.sh
   after_script:
     - echo $CI_JOB_STATUS > res
+    - pwd
+    - ls
   allow_failure: false
 
 notification-job:
@@ -58,4 +60,6 @@ notification-job:
     - basic
   stage: notification
   script:
+    - pwd
+    - ls
     - ./notification.sh $(cat res)
