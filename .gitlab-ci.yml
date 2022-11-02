@@ -50,7 +50,7 @@ deploy-job:
     - ./deploy.sh
   allow_failure: false
 
-notification-job:
+notification_success-job:
   variables:
     TELEGRAM_BOT_TOKEN: "5329922099:AAH6MpneOxaLbaUnFT0qx5rzLlhnLXWARlQ"
     TELEGRAM_USER_ID: "-1001335562451"
@@ -61,7 +61,7 @@ notification-job:
     - ./notification.sh success
   when: on-success
 
-  notification-job:
+  notification_failure-job:
   variables:
     TELEGRAM_BOT_TOKEN: "5329922099:AAH6MpneOxaLbaUnFT0qx5rzLlhnLXWARlQ"
     TELEGRAM_USER_ID: "-1001335562451"
