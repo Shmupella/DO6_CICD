@@ -47,8 +47,7 @@ deploy-job:
   script:
     - ./deploy.sh
   after_script:
-    - res=$CI_JOB_STATUS
-    - export res
+    - echo $CI_JOB_STATUS > res
   allow_failure: false
 
 notification-job:
@@ -59,4 +58,4 @@ notification-job:
     - basic
   stage: notification
   script:
-    - ./notification.sh $res
+    - ./notification.sh $(cat res)
