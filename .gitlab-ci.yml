@@ -4,6 +4,8 @@ stages:
   - test
   - deploy
   - notification
+variables:
+  RES: "failure"
 
 build-job:
   tags:
@@ -47,9 +49,7 @@ deploy-job:
   script:
     - ./deploy.sh
   after_script:
-    - echo $CI_JOB_STATUS > res
-    - pwd
-    - ls
+    - RES=$CI_JOB_STATUS
   allow_failure: false
 
 notification-job:
@@ -60,6 +60,4 @@ notification-job:
     - basic
   stage: notification
   script:
-    - pwd
-    - ls
-    - ./notification.sh $(cat res)
+    - ./notification.sh $RES
