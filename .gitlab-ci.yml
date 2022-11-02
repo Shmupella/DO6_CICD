@@ -58,4 +58,4 @@ notification-job:
     - basic
   stage: notification
   script:
-    - ./notification.sh
+    - ./notification.sh $CI_JOB_STATUS
