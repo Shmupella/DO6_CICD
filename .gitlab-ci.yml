@@ -48,8 +48,6 @@ deploy-job:
   when: manual
   script:
     - ./deploy.sh
-  after_script:
-    - RES=$CI_JOB_STATUS
   allow_failure: false
 
 notification-job:
@@ -60,4 +58,16 @@ notification-job:
     - basic
   stage: notification
   script:
-    - ./notification.sh $RES
+    - ./notification.sh success
+  when: on-success
+
+  notification-job:
+  variables:
+    TELEGRAM_BOT_TOKEN: "5329922099:AAH6MpneOxaLbaUnFT0qx5rzLlhnLXWARlQ"
+    TELEGRAM_USER_ID: "-1001335562451"
+  tags:
+    - basic
+  stage: notification
+  script:
+    - ./notification.sh failure
+  when: on-failure
