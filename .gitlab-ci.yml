@@ -61,7 +61,7 @@ notification_success-job:
     - ./notification.sh success
   when: on-success
 
-  notification_failure-job:
+notification_failure-job:
   variables:
     TELEGRAM_BOT_TOKEN: "5329922099:AAH6MpneOxaLbaUnFT0qx5rzLlhnLXWARlQ"
     TELEGRAM_USER_ID: "-1001335562451"
