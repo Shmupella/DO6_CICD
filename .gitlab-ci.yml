@@ -46,6 +46,8 @@ deploy-job:
   when: manual
   script:
     - ./deploy.sh
+  after_script:
+    - echo $CI_JOB_STATUS
   allow_failure: false
 
 notification-job:
